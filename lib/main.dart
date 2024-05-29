@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
                 // address: '+254712345789',
                 count: 10,
               );
-              debugPrint('sms inbox messages: ${messages.length}');
+              debugPrint('sms inbox messages t: ${messages.length}');
 
               setState(() => _messages = messages);
             } else {
@@ -89,7 +89,7 @@ class _MessagesListView extends StatelessWidget {
   Future getAllMessages() async {
     SmsQuery query = SmsQuery();
     List<SmsMessage> messages = await query.getAllSms;
-    print("Total Messages : ${messages.length}");
+    debugPrint("Total Messages : ${messages.length}");
     for (var element in messages) { print(element.body); }
   }
 
@@ -120,12 +120,12 @@ class _MessagesListView extends StatelessWidget {
         .where((message) => message.kind == SmsMessageKind.received)
         .toList();
 
-    print("Total Inbox Messages: ${inboxMessages.length}");
+    debugPrint("Total Inbox Messages: ${inboxMessages.length}");
 
     for (var message in inboxMessages) {
-      print("From: ${message.sender}");
-      print("Body: ${message.body}");
-      print("Timestamp: ${message.date}");
+      debugPrint("From: ${message.sender}");
+      debugPrint("Body: ${message.body}");
+      debugPrint("Timestamp: ${message.date}");
       // Add more properties you might want to access from the message object
     }
   }
@@ -138,12 +138,12 @@ class _MessagesListView extends StatelessWidget {
         .where((message) => message.kind == SmsMessageKind.sent)
         .toList();
 
-    print("Total Send Messages: ${inboxMessages.length}");
+    debugPrint("Total Send Messages: ${inboxMessages.length}");
 
     for (var message in inboxMessages) {
-      print("From: ${message.sender}");
-      print("Body: ${message.body}");
-      print("Timestamp: ${message.date}");
+      debugPrint("From: ${message.sender}");
+      debugPrint("Body: ${message.body}");
+      debugPrint("Timestamp: ${message.date}");
       // Add more properties you might want to access from the message object
     }
   }
@@ -156,12 +156,12 @@ class _MessagesListView extends StatelessWidget {
         .where((message) => message.kind == SmsMessageKind.draft)
         .toList();
 
-    print("Total Inbox Messages: ${inboxMessages.length}");
+    debugPrint("Total Draft Messages: ${inboxMessages.length}");
 
     for (var message in inboxMessages) {
-      print("From: ${message.sender}");
-      print("Body: ${message.body}");
-      print("Timestamp: ${message.date}");
+      debugPrint("From: ${message.sender}");
+      debugPrint("Body: ${message.body}");
+      debugPrint("Timestamp: ${message.date}");
       // Add more properties you might want to access from the message object
     }
   }
